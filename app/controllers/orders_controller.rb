@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 
+
   def show
     @order = Order.find(params[:id])
   end
@@ -52,8 +53,29 @@ class OrdersController < ApplicationController
         )
       end
     end
+
+    def send_receipt(order)
+      total = order.total
+
+      text = "Hello thank you for your order. Your total is $#{total / 100}.\n Order Detail \n"
+
+      order.line_items.each do |i|
+        text += 'Product Name: ' + i.product.name + "\n"
+        text += 'Product Quantity: ' + i.product.quantity.to_s + "\n"
+      end
+
+      RestClient.post "https://api:key-47384dd877d4c2d0e670b6b27edf8e7a"\
+  "@api.mailgun.net/v3/sandbox92d15394e31445768ce3d3496a59fa64.mailgun.org/messages",
+                      :from => "no-reply@jungle.com",
+                      :to => order.email,
+                      :subject => 'Order #' + order.id.to_s,
+                      :text => text
+    end
+
     order.save!
+    send_receipt(order)
     order
+
   end
 
   # returns total in cents not dollars (stripe uses cents as well)
