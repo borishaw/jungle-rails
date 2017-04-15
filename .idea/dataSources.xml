@@ -7,5 +7,21 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/jungle_development</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Rails jungle-rails: test" uuid="f97f0055-564d-4616-86ac-fcc0a517af46">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:jungle_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails jungle-rails: development" uuid="a3386973-a2be-4228-8cff-6afeae0282b9">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:jungle_development</jdbc-url>
+    </data-source>
   </component>
 </project>

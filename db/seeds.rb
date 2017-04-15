@@ -133,4 +133,33 @@ cat3.products.create!({
 })
 
 
-puts "DONE!"
+#Seed users
+puts 'Recreating users'
+User.create!(first_name: 'John',
+             last_name: 'Smith',
+             email: 'john@smith.com',
+             password: 'password',
+             password_confirmation: 'password'
+)
+
+User.create!(first_name: 'Jane',
+             last_name: 'Smith',
+             email: 'jane@smith.com',
+             password: 'password',
+             password_confirmation: 'password'
+)
+
+# Seed reviews
+puts "Recreating reviews"
+Review.destroy_all
+
+Review.create!(user_id: User.find(1).id,
+               product_id: Product.find(1).id,
+               description: 'Nice product',
+               rating: 5)
+
+Review.create!(user_id: User.find(2).id,
+               product_id: Product.find(1).id,
+               description: 'What a rip off',
+               rating: 1)
+puts 'Done'
