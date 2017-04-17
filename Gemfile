@@ -36,6 +36,10 @@ gem 'rmagick'
 gem 'stripe'
 gem 'faker'
 
+
+# Send email
+gem 'google-api-client'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -44,6 +48,7 @@ group :development, :test do
   gem 'byebug'
   gem 'quiet_assets'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
@@ -59,5 +64,3 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Send email
-gem 'google-api-client'
